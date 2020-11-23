@@ -18,7 +18,7 @@ const OpenOpportunities = () => {
         value={inputText}
         />
         <button
-          className='pointer pa2 white'
+          className='pointer pa2 white w-10-l'
           style={{ background: '#263F78' }}
         >
           Browse

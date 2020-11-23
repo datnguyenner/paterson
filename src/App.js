@@ -3,6 +3,9 @@ import headerBackground from './secondary-header-1.png';
 import logo from './logo.png';
 import { useState } from 'react';
 import OpenOpportunities from './OpenOpportunities';
+import Contact from './Contact';
+import Vendor from './Vendor';
+import Upcoming from './Upcoming';
 
 function App() {
   const [selectedTab, setSelectedTab] = useState('open');
@@ -56,7 +59,10 @@ function App() {
           </div>
         </header>
       </div>
-      <OpenOpportunities />
+      {selectedTab === 'open' && <OpenOpportunities />}
+      {selectedTab === 'upcoming' && <Upcoming />}
+      {selectedTab === 'vendor' && <Vendor />}
+      {selectedTab === 'contact' && <Contact />}
     </div>
   );
 }
