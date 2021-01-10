@@ -18,7 +18,6 @@ function App() {
           backgroundImage: `url(${headerBackground})`,
           backgroundSize: '100% 100%',
           backgroundRepeat: 'no-repeat',
-          height: '45%'
         }}
       >
         <header className='flex flex-row justify-between flex-wrap'>
@@ -56,6 +55,11 @@ function App() {
             >
               Contact Us
             </h3>
+          </div>
+          <div className='ma4 mr5 mr4-l pa4 bg-white br2 w-100 w-50-l' style={{marginLeft:'10%'}}>
+            <div className='mb3' style={{fontSize:'44px', fontWeight:'bold'}}>Your business may have just what the City of Paterson needs.</div>
+            <div className='mb3' style={{fontSize:'28px'}}>Browse open and upcoming opportunities to sell to the City.</div>
+            <div style={{fontSize:'18px'}}>New to this site? Read our Vendor FAQ.</div>
           </div>
         </header>
       </div>
