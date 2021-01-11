@@ -11,7 +11,7 @@ function App() {
   const [selectedTab, setSelectedTab] = useState('open');
 
   return (
-    <div className='center vh-100'>
+    <div className='center' style={{backgroundColor:'#E5E5E5'}}>
       <div
         className='vw-100'
         style={{
