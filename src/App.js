@@ -1,7 +1,8 @@
 import './App.css';
 import headerBackground from './secondary-header-1.png';
 import logo from './logo.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import convert from 'xml-js'
 import OpenOpportunities from './OpenOpportunities';
 import Contact from './Contact';
 import Vendor from './Vendor';
@@ -9,6 +10,14 @@ import Upcoming from './Upcoming';
 
 function App() {
   const [selectedTab, setSelectedTab] = useState('open');
+  useEffect(() =>{
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    const url = "https://www.patersonnj.gov/egov/api/request.egov?request=feed;dateformat=%25m-%25d-%25Y;title=Latest%20Documents;ctype=4;classificationid=63;classificationid=67;count=5"; // site that doesn’t send Access-Control-*
+    fetch(proxyurl + url) //
+    .then(response => response.text())
+    .then(contents => console.log(JSON.parse(convert.xml2json(contents, {compact: true, spaces: 4}))))
+    .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))  
+})
 
   return (
     <div className='center' style={{backgroundColor:'#E5E5E5'}}>
