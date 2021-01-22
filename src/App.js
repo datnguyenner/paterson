@@ -10,15 +10,16 @@ import Upcoming from './Upcoming';
 
 function App() {
   const [selectedTab, setSelectedTab] = useState('open');
+  const [data, setData] = useState({});
+
   useEffect(() =>{
-    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    const proxyurl = "";
     const url = "https://www.patersonnj.gov/egov/api/request.egov?request=feed;dateformat=%25m-%25d-%25Y;title=Latest%20Documents;ctype=4;classificationid=63;classificationid=67;count=5"; // site that doesn’t send Access-Control-*
     fetch(proxyurl + url) //
     .then(response => response.text())
-    .then(contents => console.log(JSON.parse(convert.xml2json(contents, {compact: true, spaces: 4}))))
+    .then(contents => setData(JSON.parse(convert.xml2json(contents, {compact: true, spaces: 4}))))
     .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))  
 })
-
   return (
     <div className='center' style={{backgroundColor:'#E5E5E5'}}>
       <div
@@ -72,7 +73,7 @@ function App() {
           </div>
         </header>
       </div>
-      {selectedTab === 'open' && <OpenOpportunities />}
+      {selectedTab === 'open' && <OpenOpportunities feeds={data?.feeds}/>}
       {selectedTab === 'upcoming' && <Upcoming />}
       {selectedTab === 'vendor' && <Vendor />}
       {selectedTab === 'contact' && <Contact />}

@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
-const OpenOpportunities = () => {
+const OpenOpportunities = (feeds) => {
 
   const [inputText, setInputText] = useState('')
+  console.log(feeds)
 
   return (
     <div className='ml5-l mr5-l ml2 mr2' style={{ height: '55%' }}>
@@ -23,6 +24,15 @@ const OpenOpportunities = () => {
         >
           Browse
         </button>
+      </div>
+      <div>
+        Your Results
+      </div>
+      <div>
+        Showing available opportunities
+      </div>
+      <div className='bg-white pa3'>
+        <div></div>
       </div>
   </div>
   );
