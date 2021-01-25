@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import { format, addMonths } from 'date-fns'
 
-const OpenOpportunities = ({feeds}) => {
+const OpenOpportunities = ({feeds=[]}) => {
 
   const [inputText, setInputText] = useState('')
-  console.log(feeds)
-
   const renderFeeds = () => {
+
+    if(!feeds.length) {
+      return (
+        <div className='bg-white pa3 mt3 br1'>
+          <h4 className='mt3'>Loading...</h4>
+        </div>
+        )
+    }
 
     return feeds.map((feed, i) => {
       const datePosted = format(new Date(feed.updated._text), 'MM/dd/yy')
@@ -54,7 +60,7 @@ const OpenOpportunities = ({feeds}) => {
       <div>
         Showing available opportunities
       </div>
-      {feeds && renderFeeds()}
+      {renderFeeds()}
   </div>
   );
 };
