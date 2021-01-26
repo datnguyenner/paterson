@@ -18,6 +18,9 @@ As part of the functioning of our government, we need to buy a wide range of goo
       <p><b>Estimated Term: </b>The approximate timeframe in months for when the contract would be carried out</p>
       <p><b>Anticipated Ad Date: </b>The approximate date/quarter (calendar year) when this contract is expected to be open for bidding</p>
       <p><b>Funding Source: </b>The type of funding source for the contract</p>
+      <div>
+      <iframe className="airtable-embed" src="https://airtable.com/embed/shrsvarI56br9cOos?backgroundColor=teal&viewControls=on" style={{ height: '100vh', width:'100%'}}></iframe>
+      </div>
   </div>
   
   );
