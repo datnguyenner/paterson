@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { format, addMonths } from 'date-fns'
+import { format } from 'date-fns'
 
 const OpenOpportunities = ({feeds=[]}) => {
-
   const [inputText, setInputText] = useState('')
+  
   const renderFeeds = () => {
-
     if(!feeds.length) {
       return (
         <div className='bg-white pa3 mt3 br1'>
@@ -14,20 +13,31 @@ const OpenOpportunities = ({feeds=[]}) => {
         )
     }
 
-    return feeds.map((feed, i) => {
-      const datePosted = format(new Date(feed.updated._text), 'MM/dd/yy')
-      const responseDeadline = format(addMonths(new Date(feed.updated._text),1), 'MM/dd/yy')
+    let filterFeeds = feeds
+    if(inputText.length){
+      filterFeeds = feeds.filter(feed=> feed.title._text.toLocaleUpperCase().includes(inputText.toLocaleUpperCase()))
+    }
 
+    const showHighlight = (text) => {
+
+      const index = text.toLocaleUpperCase().indexOf(inputText.toLocaleUpperCase())
+      if(index > -1){
+        return ( 
+           <h3 className='ma2'>{text.substring(0,index)}<span className='bg-yellow'>{text.substring(index, index+inputText.length)}</span>{text.substring(index+inputText.length)}</h3>
+        )
+      }
+
+      return <h3 className='ma2'>{text}</h3>
+    }
+
+    return filterFeeds.map((feed, i) => {
+      const datePosted = format(new Date(feed.docdate._text), 'MM/dd/yy')
         return (
           <div key={`${i}${feed.title._text}`} className='bg-white pa3 mt3 br1'>
-            <h3 className='ma2'>{feed.title._text}</h3>
-            <div className='ma2 mt3'>{feed.classification_id._text}</div>
-            <div className='ma2 mt3'>Purchasing</div>
-            <div className='ma2 mt4'>Response Deadline: {responseDeadline}</div>
-            <div className='ma2'>Date Posted: {datePosted}</div>
+            {showHighlight(feed.title._text)}
+            <div className='ma2 mt3'>Date Posted: {datePosted}</div>
             <div className='flex-row ma2 mt4 '>
-                <a className='bg-dark-green white pa2 br2 b' href={feed.link._attributes.href} target='_blank' rel='noreferrer'>View Description</a>
-                <a className='dark-blue pa2 ml2 b' href={feed.link._attributes.href} target='_blank' rel='noreferrer'>Download Submission Files</a>
+                <a className='bg-dark-green white pa2 br2 b no-underline' href={feed.link._attributes.href} target='_blank' rel='noreferrer'>View Description</a>
             </div>
           </div>
         )
@@ -40,7 +50,7 @@ const OpenOpportunities = ({feeds=[]}) => {
       <h4 className='mt3 fw4'>Search all opportunities</h4>
       <div className='mt1 w-100 flex flex-row'>
         <input 
-        placeholder='Search by contract title, keyword, department, or NIGP code' type='text' className='w-90 pa2'
+        placeholder='Search by contract title' type='text' className='w-90 pa2'
         onChange={(e)=> {
           e.preventDefault();
           setInputText(e.target.value)}
