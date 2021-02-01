@@ -12,7 +12,7 @@ function App() {
   const [data, setData] = useState([]);
 
   useEffect(() =>{
-    const url = "http://localhost:3000/documents"; // site that doesn’t send Access-Control-*
+    const url = "https://polar-crag-76665.herokuapp.com/documents"; // site that doesn’t send Access-Control-*
     fetch(url) //
     .then(response => response.json())
     .then(contents => setData(contents))
