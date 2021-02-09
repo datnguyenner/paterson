@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { format } from 'date-fns'
+import { format, subDays, isAfter } from 'date-fns'
 
 const OpenOpportunities = ({feeds=[]}) => {
   const [inputText, setInputText] = useState('')
@@ -13,7 +13,11 @@ const OpenOpportunities = ({feeds=[]}) => {
         )
     }
 
-    let filterFeeds = feeds
+    let filterFeeds = feeds.filter(feed => {
+      const expiredDate = subDays(new Date(), 30)
+      return isAfter(new Date(feed.docdate._text), expiredDate)
+    })
+    
     if(inputText.length){
       filterFeeds = feeds.filter(feed=> feed.title._text.toLocaleUpperCase().includes(inputText.toLocaleUpperCase()))
     }

@@ -58,14 +58,6 @@ function App() {
             >
               Vendor FAQ
             </h3>
-            <h3
-              className={`ma2 white pointer ${
-                selectedTab === 'contact' ? 'fw7 underline' : 'fw4'
-              }`}
-              onClick={() => setSelectedTab('contact')}
-            >
-              Contact Us
-            </h3>
           </div>
           <div className='ma4 mr5 mr4-l pa4 bg-white br2 w-100 w-50-l' style={{marginLeft:'10%'}}>
             <div className='mb3' style={{fontSize:'44px', fontWeight:'bold'}}>Your business may have just what the City of Paterson needs.</div>
@@ -77,7 +69,6 @@ function App() {
       {selectedTab === 'open' && <OpenOpportunities feeds={data}/>}
       {selectedTab === 'upcoming' && <Upcoming />}
       {selectedTab === 'vendor' && <Vendor />}
-      {selectedTab === 'contact' && <Contact />}
     </div>
   );
 }
