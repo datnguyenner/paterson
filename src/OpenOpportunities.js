@@ -3,6 +3,11 @@ import { format, subDays, isAfter } from 'date-fns'
 
 const OpenOpportunities = ({feeds=[]}) => {
   const [inputText, setInputText] = useState('')
+  const [filters, setFilters] = useState({
+    bid:false,
+    rfp: false,
+    rfq:false
+  })
   
   const renderFeeds = () => {
     if(!feeds.length) {
@@ -17,6 +22,32 @@ const OpenOpportunities = ({feeds=[]}) => {
       const expiredDate = subDays(new Date(), 30)
       return isAfter(new Date(feed.docdate._text), expiredDate)
     })
+
+    if(filters.bid || filters.rfp || filters.rfq){
+      const newFilterFeeds = []
+      if(filters.bid){
+        filterFeeds.forEach(feed=> {
+          if(feed.title._text.toLocaleUpperCase().includes("bid".toLocaleUpperCase())){
+            newFilterFeeds.push(feed)
+          }
+        })
+      }
+      if(filters.rfp){
+        filterFeeds.forEach(feed=> {
+          if(feed.title._text.toLocaleUpperCase().includes("rfp".toLocaleUpperCase())){
+            newFilterFeeds.push(feed)
+          }
+        })
+      }
+      if(filters.rfq){
+        filterFeeds.forEach(feed=> {
+          if(feed.title._text.toLocaleUpperCase().includes("rfq".toLocaleUpperCase())){
+            newFilterFeeds.push(feed)
+          }
+        })
+      }
+      filterFeeds=[...newFilterFeeds]
+    }
     
     if(inputText.length){
       filterFeeds = feeds.filter(feed=> feed.title._text.toLocaleUpperCase().includes(inputText.toLocaleUpperCase()))
@@ -62,13 +93,40 @@ const OpenOpportunities = ({feeds=[]}) => {
         value={inputText}
         />
       </div>
-      <div className='mt4 f4 b'>
-        Your Results
+      <div className='flex flex-row justify-between flex-wrap'>
+      <div className='mt4 w-20 w-100-m'>
+        <p className='b'>FILTER BY SOLICITATION TYPE</p>
+        <div className='flex flex-row'>
+          <input className="mt1" type="checkbox" id="bid" name="bid" checked={filters.bid} onClick={()=>setFilters({...filters, bid: !filters.bid})}/>
+          <div className="ml2">
+            <label className="f4" for="bid">Invitation to bid</label>
+            <div className="mt2">Awarded to the lowest qualified bidder</div>
+          </div> 
+        </div>
+        <div className='flex flex-row mt3'>
+          <input className="mt1" type="checkbox" id="rfp" name="rfp" checked={filters.rfp} onClick={()=>setFilters({...filters, rfp: !filters.rfp})}/>
+          <div className="ml2">
+            <label className="f4" for="bid">Requests for proposals (RFP)</label>
+            <div className="mt2">Evaluated by cost and quality</div>
+          </div> 
+        </div>
+        <div className='flex flex-row mt3'>
+          <input className="mt1" type="checkbox" id="rfq" name="rfq" checked={filters.rfq} onClick={()=>setFilters({...filters, rfq: !filters.rfq})}/>
+          <div className="ml2">
+            <label className="f4" for="rfq">RFQ</label>
+          </div> 
+        </div>
       </div>
-      <div>
-        Showing available opportunities
+      <div className='mt4 w-80 w-100-m'>
+        <div className='f4 b'>
+          Your Results
+        </div>
+        <div>
+          Showing available opportunities
+        </div>
+          {renderFeeds()}
+        </div>
       </div>
-      {renderFeeds()}
   </div>
   );
 };
