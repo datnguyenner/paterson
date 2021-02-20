@@ -2,6 +2,7 @@ import './App.css';
 import headerBackground from './secondary-header-1.png';
 import logo from './logo.png';
 import menu from './menu.svg';
+import footer from './footer.png'
 import { useState, useEffect } from 'react';
 import OpenOpportunities from './OpenOpportunities';
 import Vendor from './Vendor';
@@ -100,6 +101,7 @@ function App() {
       {selectedTab === 'open' && <OpenOpportunities feeds={data}/>}
       {selectedTab === 'upcoming' && <Upcoming />}
       {selectedTab === 'vendor' && <Vendor />}
+      <img className='mt5' src={footer} alt='' style={{width:'100vw'}}/>
     </div>
   );
 }
