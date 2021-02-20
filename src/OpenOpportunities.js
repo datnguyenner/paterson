@@ -54,19 +54,13 @@ const OpenOpportunities = ({feeds=[]}) => {
       <h4 className='mt3 fw4'>Search all opportunities</h4>
       <div className='mt1 w-100 flex flex-row'>
         <input 
-        placeholder='Search by contract title' type='text' className='w-90 pa2'
+        placeholder='Search by contract title' type='text' className='w-100 pa2'
         onChange={(e)=> {
           e.preventDefault();
           setInputText(e.target.value)}
         }
         value={inputText}
         />
-        <button
-          className='pointer pa2 white w-10-l'
-          style={{ background: '#263F78' }}
-        >
-          Browse
-        </button>
       </div>
       <div className='mt4 f4 b'>
         Your Results
