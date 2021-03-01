@@ -23,7 +23,7 @@ function App() {
 },[])
 
   return (
-    <div className='center' style={{backgroundColor:'#E5E5E5'}}>
+    <div className='center' style={{backgroundColor:'#E5E5E5', minWidth:'375px'}}>
       <div
         style={{
           backgroundImage: `url(${headerBackground})`,
@@ -34,10 +34,10 @@ function App() {
         }}
       >
         <header className='flex flex-row justify-between flex-wrap'>
-          <img src={logo} className='ml5 ml3-m img mt3' alt='' />
-          <div className='flex flex-row dn-m justify-between mt4 mr5-l w-50-l w-100'>
+          <img src={logo} className='ml3 ml5-ns img mt3' alt='' />
+          <div className='flex flex-row dn di-ns justify-between mt4 mr5-l w-50-l w-100'>
             <h3
-              className={`ma2 white pointer ${
+              className={`ma2 dn di-ns white pointer ${
                 selectedTab === 'open' ? 'fw7 underline' : 'fw4'
               }`}
               onClick={() => setSelectedTab('open')}
@@ -45,7 +45,7 @@ function App() {
               Open Opportunities
             </h3>
             <h3
-              className={`ma2 white pointer ${
+              className={`ma2 dn di-ns white pointer ${
                 selectedTab === 'upcoming' ? 'fw7 underline' : 'fw4'
               }`}
               onClick={() => setSelectedTab('upcoming')}
@@ -53,7 +53,7 @@ function App() {
               Upcoming Opportunities
             </h3>
             <h3
-              className={`ma2 white pointer ${
+              className={`ma2 dn di-ns white pointer ${
                 selectedTab === 'vendor' ? 'fw7 underline' : 'fw4'
               }`}
               onClick={() => setSelectedTab('vendor')}
@@ -61,9 +61,9 @@ function App() {
               Vendor FAQ
             </h3>
           </div>
-          <div className='relative mt3 mr3-m ml3 dn-l pointer link hide-child'>
-            <img src={menu} alt='' />
-            <div className='absolute child flex-end br2' style={{top:0, left: -195, width: 225, backgroundColor: '#191970'}}>
+          <div className='w-100 relative mr3 ml3 di dn-ns pointer link hide-child'>
+            <img src={menu} className='fr' alt='' />
+            <div className='absolute child br2' style={{top:0, left: 120, width: 225, backgroundColor: '#191970'}}>
               <div
                 className={`ma2 white pointer ${
                   selectedTab === 'open' ? 'fw7 underline' : 'fw4'
@@ -91,10 +91,10 @@ function App() {
             </div>
           </div>
 
-          <div className='mt5 mt2-m mr5 ml3-m mr3-m ml6 pa4 bg-white br2 w-100 w-50-l'>
-            <div className='mb3' style={{fontSize:'44px', fontWeight:'bold'}}>Your business may have just what the City of Paterson needs.</div>
-            <div className='mb3' style={{fontSize:'28px'}}>Browse open and upcoming opportunities to sell to the City.</div>
-            <div style={{fontSize:'18px'}}>New to this site? <span className='dark-blue pointer fw7 underline' onClick={() => setSelectedTab('vendor')}>Read our Vendor FAQ.</span></div>
+          <div className='mt5-ns mt2 mr-5-ns ml3 mr3 ml6-l pa2 pa4-ns bg-white br2 w-100 w-50-l'>
+            <div className='mb2 f3 f2-ns mb3-ns' style={{fontWeight:'bold'}}>Your business may have just what the City of Paterson needs .</div>
+            <div className='mb2 f4 f3-ns mb3-ns'>Browse open and upcoming opportunities to sell to the City.</div>
+            <div className='f5 f4-ns'>New to this site? <span className='dark-blue pointer fw7 underline' onClick={() => setSelectedTab('vendor')}>Read our Vendor FAQ.</span></div>
           </div>
         </header>
       </div>

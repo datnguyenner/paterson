@@ -94,7 +94,7 @@ const OpenOpportunities = ({feeds=[]}) => {
         />
       </div>
       <div className='flex flex-row justify-between flex-wrap'>
-      <div className='mt4 w-20 w-100-m'>
+      <div className='mt4 w-20-ns'>
         <p className='b'>FILTER BY SOLICITATION TYPE</p>
         <div className='flex flex-row'>
           <input className="mt1" type="checkbox" id="bid" name="bid" checked={filters.bid} onClick={()=>setFilters({...filters, bid: !filters.bid})}/>
@@ -118,7 +118,7 @@ const OpenOpportunities = ({feeds=[]}) => {
         </div>
         <button className='pa2 br2 mt4 pointer link dim' onClick={()=>setFilters({bid:false,rfp: false,rfq:false})}>Reset all filters</button>
       </div>
-      <div className='mt4 w-80 w-100-m'>
+      <div className='mt4 w-80-ns w-100'>
         <div className='f4 b'>
           Your Results
         </div>
