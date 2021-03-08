@@ -37,10 +37,10 @@ feather.replace()
           height:'55vh'
         }}
       >
-        <header className='flex flex-row justify-between flex-wrap'>
+        <header>
           <div className='w-100 mt2 relative mr3 ml3 di dn-ns pointer link hide-child'>
             <img src={menu} className='fr' alt='' />
-            <div className='absolute child br2' style={{top:0, left: 120, width: 225, backgroundColor: '#191970'}}>
+            <div className='absolute child br2' style={{top:0, left: 132, width: 225, backgroundColor: '#191970'}}>
               <div
                 className={`ma2 white pointer ${
                   selectedTab === 'open' ? 'fw7 underline' : 'fw4'
@@ -67,35 +67,36 @@ feather.replace()
               </div>
             </div>
           </div>
-          <img src={logo} className='ml3 ml5-ns mt3 w-5 h3' alt='' />
-          <div className='flex flex-row dn di-ns justify-between mt4 mr5-l w-50-l w-100'>
-            <h3
-              className={`ma2 dn di-ns white pointer ${
-                selectedTab === 'open' ? 'fw7 underline' : 'fw4'
-              }`}
-              onClick={() => setSelectedTab('open')}
-            >
-              Open Opportunities
-            </h3>
-            <h3
-              className={`ma2 ml6-ns dn di-ns white pointer ${
-                selectedTab === 'upcoming' ? 'fw7 underline' : 'fw4'
-              }`}
-              onClick={() => setSelectedTab('upcoming')}
-            >
-              Upcoming Opportunities
-            </h3>
-            <h3
-              className={`ma2 ml6-ns dn di-ns white pointer ${
-                selectedTab === 'vendor' ? 'fw7 underline' : 'fw4'
-              }`}
-              onClick={() => setSelectedTab('vendor')}
-            >
-              Vendor FAQ
-            </h3>
+          <div className='flex justify-between pr5-ns'>
+            <img src={logo} className='ml3 ml5-ns mt3 w-5 h3' alt='' />
+            <div className='dn di-ns mt4'>
+              <h3
+                className={`ma2 dn di-ns white pointer ${
+                  selectedTab === 'open' ? 'fw7 underline' : 'fw4'
+                }`}
+                onClick={() => setSelectedTab('open')}
+              >
+                Open Opportunities
+              </h3>
+              <h3
+                className={`ma2 dn di-ns white pointer ${
+                  selectedTab === 'upcoming' ? 'fw7 underline' : 'fw4'
+                }`}
+                onClick={() => setSelectedTab('upcoming')}
+              >
+                Upcoming Opportunities
+              </h3>
+              <h3
+                className={`ma2 dn di-ns white pointer ${
+                  selectedTab === 'vendor' ? 'fw7 underline' : 'fw4'
+                }`}
+                onClick={() => setSelectedTab('vendor')}
+              >
+                Vendor FAQ
+              </h3>
+            </div>
           </div>
-
-          <div className='mt5-ns mt2 mr-5-ns ml3 mr3 ml6-l pa2 pa4-ns bg-white br2 w-100 w-50-l'>
+          <div className='mt5-ns mt2 ma2 mr5-ns ml3 mr3 ml6-ns pa2 pa4-ns bg-white br2 w-50-ns w-80-m'>
             <div className='mb2 f3 f2-ns mb3-ns' style={{fontWeight:'bold'}}>Your business may have just what the City of Paterson needs .</div>
             <div className='mb2 f4 f3-ns mb3-ns'>Browse open and upcoming opportunities to sell to the City.</div>
             <div className='f5 f4-ns'>New to this site? <span className='dark-blue pointer fw7 underline' onClick={() => setSelectedTab('vendor')}>Read our Vendor FAQ.</span></div>
