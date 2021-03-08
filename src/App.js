@@ -38,7 +38,7 @@ feather.replace()
         }}
       >
         <header className='flex flex-row justify-between flex-wrap'>
-          <img src={logo} className='ml3 ml5-ns img mt3 w-30 h4' alt='' />
+          <img src={logo} className='ml3 ml5-ns mt3 w-5 h3' alt='' />
           <div className='flex flex-row dn di-ns justify-between mt4 mr5-l w-50-l w-100'>
             <h3
               className={`ma2 dn di-ns white pointer ${
