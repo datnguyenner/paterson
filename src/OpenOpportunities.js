@@ -118,7 +118,7 @@ const OpenOpportunities = ({feeds=[]}) => {
         </div>
         <button className='pa2 br2 mt4 pointer link dim' onClick={()=>setFilters({bid:false,rfp: false,rfq:false})}>Reset all filters</button>
       </div>
-      <div className='mt4 w-80-ns w-100'>
+      <div className='mt4 w-75-ns w-100'>
         <div className='f4 b'>
           Your Results
         </div>

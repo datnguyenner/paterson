@@ -1,6 +1,6 @@
 import harry from './harry.png';
 
-const Vendor = () => {
+const Vendor = ({openOpportunities, upcoming}) => {
 
   return (
     <div className='ml5-l mr5-l ml2 mr2'>
@@ -31,12 +31,10 @@ const Vendor = () => {
         </div>
         <div className='w-60-l w-100 pa3 bg-white mt3 ml4-l br2'>
           <h3 className='mt1'>Question?</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fermentum nec justo at malesuada. Cras vitae magna gravida libero tempor pulvinar. Integer ultrices finibus felis, lacinia mollis elit pellentesque et. Aliquam ac nibh eros. Quisque scelerisque semper tellus. Proin commodo, sapien a dignissim facilisis, felis magna sollicitudin velit, eu lacinia quam arcu in est. </p>
-          <h3 className='mt1'>Question?</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fermentum nec justo at malesuada. Cras vitae magna gravida libero tempor pulvinar. Integer ultrices finibus felis, lacinia mollis elit pellentesque et. Aliquam ac nibh eros. Quisque scelerisque semper tellus. Proin commodo, sapien a dignissim facilisis, felis magna sollicitudin velit, eu lacinia quam arcu in est. </p>
-          <h3 className='mt1'>How do I find opportunities with the city?</h3>
-          <div className='mt2 dark-blue underline'>View Open Opportunities</div>
-          <div className='mt2 dark-blue underline'>View Upcoming Opportunities</div>
+          <a href="./VendorFAQ.pdf" download>Download our Vendor FAQ</a>
+          <h3 className='mt4'>How do I find opportunities with the city?</h3>
+          <div className='mt1 dark-blue underline pointer' onClick={openOpportunities}>View Open Opportunities</div>
+          <div className='mt2 dark-blue underline pointer' onClick={upcoming}>View Upcoming Opportunities</div>
         </div>
 
       </div>
