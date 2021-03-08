@@ -1,10 +1,12 @@
 import './App.css';
 import headerBackground from './secondary-header-1.png';
-import logo from './logo.png';
+import logo from './site-title.png';
 import menu from './menu.svg';
-import footer from './footer.png'
+import citySeal from './city-seal.png';
+import skyline from './skyline.jpeg'
 import { useState, useEffect } from 'react';
 import OpenOpportunities from './OpenOpportunities';
+import feather from 'feather-icons'
 import Vendor from './Vendor';
 import Upcoming from './Upcoming';
 
@@ -22,6 +24,8 @@ function App() {
     //setData(jsonData)
 },[])
 
+feather.replace()
+
   return (
     <div className='center' style={{backgroundColor:'#E5E5E5', minWidth:'375px'}}>
       <div
@@ -34,7 +38,7 @@ function App() {
         }}
       >
         <header className='flex flex-row justify-between flex-wrap'>
-          <img src={logo} className='ml3 ml5-ns img mt3' alt='' />
+          <img src={logo} className='ml3 ml5-ns img mt3 w-30 h4' alt='' />
           <div className='flex flex-row dn di-ns justify-between mt4 mr5-l w-50-l w-100'>
             <h3
               className={`ma2 dn di-ns white pointer ${
@@ -101,7 +105,57 @@ function App() {
       {selectedTab === 'open' && <OpenOpportunities feeds={data}/>}
       {selectedTab === 'upcoming' && <Upcoming />}
       {selectedTab === 'vendor' && <Vendor />}
-      <img className='mt5' src={footer} alt='' style={{width:'100vw'}}/>
+      <footer>
+        <img className='mt5' src={skyline} alt='' style={{width:'100vw'}}/>
+        <div className='flex flex-row-ns pa0-ns pa2 flex-column justify-around' style={{backgroundColor:'#E5E5E5', minWidth:'375px'}}>
+          <img className='mt3 mb3 w5 h5' src={citySeal} alt=''/>
+          <div className="flex flex-column">
+            <h2 className="dark-green b">Links</h2>
+            <a className="dark-green fw5" href="https://www.patersonnj.gov/government/" style={{textDecoration: 'none'}}>Government</a>
+            <a className="dark-green fw5 mt3" href="https://www.patersonnj.gov/departments/" style={{textDecoration: 'none'}}>Departments</a>
+            <a className="dark-green fw5 mt3" href="https://www.patersonnj.gov/category/?categoryid=10" style={{textDecoration: 'none'}}>Residents</a>
+            <a className="dark-green fw5 mt3" href="https://www.patersonnj.gov/category/?categoryid=7" style={{textDecoration: 'none'}}>Do Business</a>
+            <a className="dark-green fw5 mt3" href="https://www.patersonnj.gov/category/?categoryid=8" style={{textDecoration: 'none'}}>Discover</a>
+          </div>
+          <div className="flex flex-column">
+            <h2 className="dark-green b">Get Connected</h2>
+            <div className='flex items-center'>
+              <i data-feather="facebook"></i>
+              <a className="ml2 dark-green fw5" href="https://www.facebook.com/PatersonNJCityHall/" target='_blank' rel="noopener noreferrer" style={{textDecoration: 'none'}}>Facebook</a>
+            </div>
+            <div className='mt3 flex items-center'>
+              <i data-feather="instagram"></i>              
+              <a className="ml2 dark-green fw5" href="https://www.instagram.com/cityofpatersonnj/" target='_blank' rel="noopener noreferrer" style={{textDecoration: 'none'}}>Instagram</a>
+            </div>
+            <div className='mt3 flex items-center'>
+              <i data-feather="twitter"></i>
+              <a className="ml2 dark-green fw5" href="https://twitter.com/citypatersonnj/" target='_blank' rel="noopener noreferrer" style={{textDecoration: 'none'}}>Twitter</a>
+            </div>
+            <div className='mt3 flex items-center'>
+              <i data-feather="youtube"></i>
+              <a className="ml2 dark-green fw5" href="https://www.youtube.com/channel/UCouBMb5p74dTpJOB-1XAeDQ" target='_blank' rel="noopener noreferrer" style={{textDecoration: 'none'}}>YouTube</a>
+            </div>
+          </div>
+          <div className="flex flex-column">
+            <h2 className="dark-green b">Contact Us</h2>
+            <div className='flex items-center'>
+              <i data-feather="map-pin"></i>
+              <div className="ml2 fw4 ">
+              Paterson City Hall<br/>
+              155 Market Street<br/>
+              Paterson, New Jersey 07505</div>
+            </div>
+            <div className='flex items-center'>
+              <i data-feather="phone"></i>
+              <p className="ml2 dark-green fw5">973-321-1600</p>
+            </div>
+            <div className='flex items-center'>
+              <i data-feather="mail"></i>
+              <p className="ml2 dark-green fw5">feedback@patersonnj.gov</p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
