@@ -31,7 +31,7 @@ const Vendor = ({openOpportunities, upcoming}) => {
         </div>
         <div className='w-60-l w-100 pa3 bg-white mt3 ml4-l br2'>
           <h3 className='mt1'>Question?</h3>
-          <a href="./VendorFAQ.pdf" download>Download our Vendor FAQ</a>
+          <a href="https://drive.google.com/file/d/1SVTE_C93TVC9WVzRZKcDKPR84LOuRji6/view?usp=sharing" download>Download our Vendor FAQ</a>
           <h3 className='mt4'>How do I find opportunities with the city?</h3>
           <div className='mt1 dark-blue underline pointer' onClick={openOpportunities}>View Open Opportunities</div>
           <div className='mt2 dark-blue underline pointer' onClick={upcoming}>View Upcoming Opportunities</div>
